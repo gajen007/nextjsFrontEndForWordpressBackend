@@ -1,24 +1,5 @@
 const API_URL = process.env.WORDPRESS_API_URL;
 
-async function fetchAPItest(query, { variables } = {}) {
-  /*
-  const headers = { 'Content-Type': 'application/json' }
-  const res = await fetch(API_URL, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  })
-  const txt = await res.text()
-  return txt;
-  //const json = await res.json()
-  //const err =  json.errors;
-  //return err[0].message;
-  */
-}
-
 async function fetchAPI(query, { variables } = {}) {
     const headers = { 'Content-Type': 'application/json' }
     

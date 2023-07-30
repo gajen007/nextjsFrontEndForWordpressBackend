@@ -11,10 +11,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/pages/SinglePost/[id]/page": [
+    "/pages/[postID]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/pages/SinglePost/[id]/page.js"
+      "static/chunks/app/pages/[postID]/page.js"
     ]
   }
 }
