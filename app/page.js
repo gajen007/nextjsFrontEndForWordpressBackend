@@ -10,7 +10,7 @@ export default async function Home() { //async because useEffect cannot be used 
       Array.isArray(data) && data.map((post)=>{
         return <Link 
         key={post.node.id}
-        href={`/pages/SinglePost?questionID=`+post.node.id}>
+        href={`/pages/SinglePost/${post.node.id}`}>
           <li>{post.node.title}</li>
         </Link>;
       })
