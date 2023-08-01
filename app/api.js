@@ -139,7 +139,8 @@ export async function getSinglePost(postID){
           categories{
           edges{
               node{
-              name
+                categoryId
+                name
               }
           }
           }

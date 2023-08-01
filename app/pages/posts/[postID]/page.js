@@ -1,5 +1,5 @@
 import React from "react"
-
+import Link from "next/link"
 import { getSinglePost } from '../../../api'
 
 export default async function Page({ params, searchParams }) {
@@ -10,7 +10,22 @@ export default async function Page({ params, searchParams }) {
         <div className="card-header bg-dark text-white">
             {postData.title}
         </div>
-        <div className="card-body" dangerouslySetInnerHTML={{__html: postData.content}}></div>
+        <div className="card-body">
+            <div className="row" style={{marginBottom:5}}>
+                <div className="col-lg-12">
+                {
+                    Array.isArray(postData.categories.edges) && postData.categories.edges.map((category)=>{
+                        return <span key={category.node.categoryId} className="bg-dark text-white" style={{marginLeft:5,padding:5,borderRadius:25}}>
+                                <Link style={{ textDecoration: 'none' }} href={`/pages/categories/${category.node.categoryId}`}>{category.node.name}</Link>
+                        </span>
+                    })
+                }
+                </div>
+            </div>
+            <div className="row" style={{marginBottom:5}}>
+                <div className="col-lg-12"  dangerouslySetInnerHTML={{__html: postData.content}}></div>
+            </div>
+        </div>
         <div className="card-footer">
             <span>Comments</span>
             <ul style={{listStyle:'none'}}>

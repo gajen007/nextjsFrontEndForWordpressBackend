@@ -15,6 +15,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/posts/[postID]/page.js"
+    ],
+    "/pages/categories/[categoryID]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pages/categories/[categoryID]/page.js"
     ]
   }
 }

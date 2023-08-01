@@ -10,7 +10,8 @@ export default async function SideBar() {
         marginLeft:100,
         border:'solid',
         borderWidth:0.5,
-        borderColor:"blue",
+        borderColor:"Blue",
+        borderRadius:25
     };
     const categories = await getCategories();
     return (
@@ -19,11 +20,11 @@ export default async function SideBar() {
                 <ul style={{listStyle:'none'}}>
                     {
                         Array.isArray(categories) && categories.map((category)=>{
-                            return <Link
-                                    key={category.node.categoryId}
-                                    href={`/pages/categories/${category.node.categoryId}`}
-                                ><li style={{marginTop:5}}>{category.node.name}</li>
-                            </Link>
+                            return <li key={category.node.categoryId} style={{marginTop:10}}>
+                                    <span className="bg-dark text-white" style={{marginLeft:5,padding:5,borderRadius:25}}>
+                                        <Link style={{ textDecoration: 'none' }} href={`/pages/categories/${category.node.categoryId}`}>{category.node.name}</Link>
+                                    </span>
+                                </li>;
                         })
                     }
                 </ul>
