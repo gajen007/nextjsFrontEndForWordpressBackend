@@ -28,10 +28,77 @@ async function fetchAPI(query, { variables } = {}) {
     return json.data
   }
 
+  async function examineGraphQlquery(query, { variables } = {}) {
+    const headers = { 'Content-Type': 'application/json' }
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
+    })
+    const txt = await res.json()
+    return txt.errors;
+  }
+
+
+export async function getCategories(){
+  const data = await fetchAPI(
+    `query getAllCategories {
+      categories{
+        edges{
+          node{
+            categoryId
+            name
+          }
+        }
+      }
+    }`,{
+      variables: {},
+    }
+  );
+  return data?.categories?.edges;
+}
+
+export async function getPostsOfCategory(categoryID){
+  const intCatID=parseInt(categoryID);
+  const data = await fetchAPI(
+    `query postsOfCategory($categoryId:Int!) {
+      posts(where:{categoryId:$categoryId}) {
+        edges {
+          node {
+            id
+            title
+            categories{
+            edges{
+                node{
+                name
+                }
+            }
+            }
+            excerpt
+            slug
+            author {
+              node {
+                name
+                firstName
+                lastName
+              }
+            }
+          }
+        }
+      }
+    }
+  `,{variables:{"categoryId":intCatID}}
+  );
+  return data?.posts?.edges;
+}
+
 export async function getPosts(){
   const data = await fetchAPI(
         `query AllPosts {
-          posts(first: 20) {
+          posts(first: 100) {
             edges {
               node {
                 id
@@ -91,15 +158,3 @@ export async function getSinglePost(postID){
   }`,{variables:{"id":postID}});
   return data?.post;
 }
-
-/*
-{
-  getThisBook(bookID:3){
-    id
-    name
-    author {
-      name
-    }
-  }
-}
-*/

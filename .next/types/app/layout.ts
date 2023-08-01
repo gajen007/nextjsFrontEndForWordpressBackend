@@ -1,4 +1,4 @@
-// File: /home/gajen/2023/nextjsFrontEndForWordpressBackend/app/layout.js
+// File: /home/gajen/Repositories/nextjsFrontEndForWordpressBackend/app/layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
