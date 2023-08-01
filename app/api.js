@@ -154,6 +154,17 @@ export async function getSinglePost(postID){
               lastName
             }
           }
+          comments(first: 100) {
+            nodes {
+              id
+              content
+              author {
+                  node {
+                    name
+                  }
+                }
+            }
+          }
     }
   }`,{variables:{"id":postID}});
   return data?.post;
