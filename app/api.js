@@ -134,13 +134,22 @@ export async function getPosts(){
 export async function getSinglePost(postID){
   const data = await fetchAPI(`
   query getSinglePost($id:ID!){
-    post(id:$id){           
+    post(id:$id){
+          id           
           title
           categories{
           edges{
               node{
                 categoryId
                 name
+                posts{
+                  edges{
+                    node{
+                      id
+                      title
+                    }
+                  }
+                }
               }
           }
           }

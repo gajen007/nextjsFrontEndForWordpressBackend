@@ -11,15 +11,15 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/pages/posts/[postID]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/posts/[postID]/page.js"
-    ],
     "/pages/categories/[categoryID]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/categories/[categoryID]/page.js"
+    ],
+    "/pages/posts/[postID]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pages/posts/[postID]/page.js"
     ]
   }
 }
