@@ -9,6 +9,6 @@ place the graphql's URL in the .env file as ...
 
 WORDPRESS_API_URL=http://YOUR_WORDPRESS_ROUTE/index.php?graphql
 
-You can find your graohql url via "/wp-admin" route in your wordpress dashboard; check it with /index.php?graphql
+You can find your graphql url via "/wp-admin" route in your wordpress dashboard; check it with /index.php?graphql
 
 That's all.
